@@ -2,17 +2,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: netbox-chart
-  namespace: netbox
-spec:  
-  project: default
-  source:
-    repoURL: 'https://github.com/barramys/netbox'
-    path: netbox-chart
-    targetRevision: HEAD
+  name: netbox
+spec:
   destination:
-    server: 'https://kubernetes.default.svc'
+    name: ''
     namespace: netbox
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: netbox-chart
+    repoURL: 'https://github.com/barramys/netbox'
+    targetRevision: HEAD
+  sources: []
+  project: default
   syncPolicy:
     automated:
       prune: true
